@@ -55,3 +55,24 @@ nav ul li a:hover{
     line-height: 40px;
     font-size: 20px;
 }
+#about-me{
+    padding: 100px 100px;
+    background-color: white;
+    display: flex; 
+    align-items: center;
+   
+}
+
+
+#about-me img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid rgb(187, 143, 206);
+    margin: 20px;
+    object-fit: cover;/*let the image maintain the aspect ratio */
+}
+#about-me .about-me-details{
+    padding: 20px;
+
+}
