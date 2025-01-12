@@ -18,6 +18,11 @@ header{
     top: 0;
     
 }
+
+header h1{
+    padding-left: 10px;
+    letter-spacing: 0.5px;
+}
 /* nav bar with menus in header  */
 nav ul{
     display: flex;
@@ -29,6 +34,7 @@ nav ul{
 nav ul li a{
     text-decoration: none;
     color: white;
+
     /*use of transition*/
     transition: font-size 0.4s ease; /*to change font-size at a smooth rate of 0.4 sec*/
 }
@@ -37,7 +43,26 @@ nav ul li a:hover{
     font-size: 18px;
     color: rgb(30, 176, 249);
 }
-
+/* animation */
+@keyframes myAnimation {
+    0% {
+        background-color: white;
+      }
+      50% {
+        background-color: rgb(30, 176, 249); 
+      }
+      100% {
+        background-color: rgb(187, 143, 206); 
+      }
+}
+ 
+.animated{
+    width: 100;
+    height: 5px;
+    background-color: rgb(187, 143, 206);
+    animation-name: myAnimation;
+    animation-duration: 4s;
+}
 /* hero Section */
 #hero {
     height: 500px;
@@ -56,6 +81,58 @@ nav ul li a:hover{
     line-height: 40px;
     font-size: 20px;
 }
+/*call for me button styling*/
+.btn{
+    position: relative;
+    padding: 10px 30px;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: 35px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.btn::before, .btn::after{
+    content:"";
+    position: absolute;
+    height: 2px;
+    background-color: white;
+    transition: transform 0.5s ease;
+}
+.btn::before{
+    top:0;
+    left:0;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+
+}
+
+.btn::after{
+    left:0;
+    bottom:0;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+
+.btn:hover::before {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.btn:hover::after {
+  background-color: aqua;  
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+
+/* about me section */
 #about-me{
     padding: 100px 100px;
     background-color: white;
@@ -110,39 +187,53 @@ nav ul li a:hover{
     width: 100%;
     height: 470px;
     background-color: rgb(235, 237, 239);
-    /* display: flex;
-    flex-direction: column; */
+}
+.contact-me-div{
+    height: 410px;
+    width: 100%;
+    /* background-color: aqua; */
+
 }
 #contact-me h2{
     text-align: center;
-    padding: 50px 0px 20px 0px;
+    padding: 30px 0px 5px 0px;
 
 }
-#contact-me form{
-    /* padding: 0px 600px; */
-}
-#contact-me form span{
-    padding:0px 20px 0px 0px;
-    display: flex;
-    text-align: center;
+
+#contact-me form {
+    display: grid;
+    justify-content: center;
+
 }
 
 #contact-me form input {
     width: 400px;
     height: 25px;
     display: flex;
-    align-items: center;//////////////////
+    align-items: center;
     border-radius: 5px;
-    border: 0.3px solid black;
+    border: 0.1px solid rgb(105, 100, 100);;
 }
 #contact-me form input:focus{
     outline:  rgb(30, 176, 249);
 
 }
 #contact-me form textarea{
-    width: 390px;
+    width: 400px;
     height: 100px;
+    border: 0.1px solid rgb(105, 100, 100);
+    border-radius: 5px;
 }
+
+    /* Focus effect */
+#contact-me form input:focus,
+#contact-me form textarea:focus {
+     
+      box-shadow: 0 0 5px rgb(30, 176, 249);
+      
+}
+
+
 /* contact-me form buttton */
 #button{
     margin: 10px 110px;

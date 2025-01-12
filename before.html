@@ -3,71 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button with Pseudo-elements</title>
+  <title>Transform with ::before and ::after</title>
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      background: #f4f4f4;
       margin: 0;
-      background-color: #f4f4f4;
-      font-family: Arial, sans-serif;
     }
 
-    .btn {
+    .button {
       position: relative;
-      /* display: inline-block; */
-      padding: 12px 24px; 
-      font-size: 16px; 
+      padding: 15px 40px;
+      font-size: 18px;
       color: #fff;
-      background-color: #007bff;
+      background: #0078d4;
+      text-decoration: none;
+      text-transform: uppercase;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
-      /* text-transform: uppercase; */
-      /* letter-spacing: 1px; */
-      /* overflow: hidden; */
-      /* outline: none; */
+      overflow: hidden;
+      transition: background 0.3s ease;
+      border-radius: 5px;
     }
 
-    /* Pseudo-elements for hover effect */
-    .btn::before,
-    .btn::after {
-      content: '';
+    .button::before,
+    .button::after {
+      content: "";
       position: absolute;
-      width: 100%;
       height: 2px;
       background: #fff;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
     }
 
-    .btn::before {
+    /* Horizontal Line (Top) */
+    .button::before {
       top: 0;
       left: 0;
+      width: 100%;
       transform: scaleX(0);
       transform-origin: right;
     }
 
-    .btn::after {
+    /* Horizontal Line (Bottom) */
+    .button::after {
       bottom: 0;
-      right: 0;
+      left: 0;
+      width: 100%;
       transform: scaleX(0);
       transform-origin: left;
     }
 
-    /* Hover effect */
-    .btn:hover::before,
-    .btn:hover::after {
+    /* Hover Effect */
+    .button:hover::before {
       transform: scaleX(1);
+      transform-origin: left;
     }
 
-    .btn:hover {
-      background-color: #0056b3;
+    .button:hover::after {
+      transform: scaleX(1);
+      transform-origin: right;
     }
   </style>
 </head>
 <body>
-  <button class="btn">Click Me</button>
+  <a href="#" class="button">Hover Me</a>
 </body>
-</html>  
+</html>
